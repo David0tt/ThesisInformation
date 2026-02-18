@@ -108,6 +108,8 @@ You may print your thesis on one of our printers for free. You then only need to
 - [Visual Studio Code](https://code.visualstudio.com): simple and highly customizable (however you can use any IDE you prefer)
 - [Docker](https://www.docker.com/): stable, independent environments. Consider a [Docker development environment workflow](https://learn.microsoft.com/en-us/training/modules/use-docker-container-dev-env-vs-code/). See also: [TUTORIAL_DOCKER.md](TUTORIAL_DOCKER.md)
 - [Zotero](https://www.zotero.org/): manage papers, highlights, notes, and citations
+- [LaTeX](https://www.latex-project.org/): A typesetting system allowing precise creation of your written thesis, taking many things like manually managing citations off your mind. I personally like to use the [texlive](https://www.tug.org/texlive/) distribution which can be installed on ubuntu using `sudo apt install texlive-full`, or on windows following the [Windows Installation Instructions](https://tug.org/texlive/windows.html) and the [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) VSCode extension. 
+
 
 ## AI Assisted Coding
 
