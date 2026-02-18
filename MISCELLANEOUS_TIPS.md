@@ -115,21 +115,3 @@ For some programs that I find very useful, you can refer to [.linux_autosetup/in
 For keyboard shortcuts I find useful you can refer to [Hotkeys.md](https://github.com/David0tt/.linux_autosetup/blob/main/Hotkeys.md) or [vscode_linux_keybindings.json](https://github.com/David0tt/.linux_autosetup/blob/main/config_files/VSCode/vscode_linux_keybindings.json)
 
 
-## Compute Clusters
-At our chair we have access to multiple compute clusters.
-
-
-### [TCML](https://uni-tuebingen.de/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/lehrstuehle/kognitive-systeme/projects/tcml-cluster/)
-This is a shared compute cluster administrated by our chair. It allows efficient training of medium-sized models (e.g. ResNet-152).
-
-### [ML Cloud](https://portal.mlcloud.uni-tuebingen.de/mlcloud-pages/news)
-This is the shared ML Cloud cluster of the University of Tuebingen. Here, large amounts of compute are available, in particular nodes with H100 GPUs with up to 80GB VRAM, allowing training of very large models. However access times might not be ideal due to queueing.
-
-
-### Avalon (TODO)
-These are two PCs with 8xRTX3090 and 8xA5000 respectively for direct compute access. 
-
-General FAQ:
-- Environments: `/data/messmer/conda_envs`. In general, `/data/<username>` is where large things should go.
-- Repositories can typically live under `/home`. But if you create large checkpoints, you may want them on `/data`.
-  - Note: Hugging Face caches often go to `$HOME/.cache` regardless of repo location. A potential solution is to symlink `~/.cache` to `/data/<username>` (just a first idea).

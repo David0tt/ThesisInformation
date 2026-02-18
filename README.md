@@ -33,6 +33,30 @@ After you have filled out all three documents:
 
 Send me a quick message before you come, so we can hand things in together.
 
+## Workplace
+We can provide you with a workplace in the student room at our chair. This includes a PC with good Hardware that we will set up for your use for your thesis. However, you should only use this if you will work some amount of time in person at our chair. If you plan to work from home most of the time anyways, please do not block a workplace for other students. 
+
+## Compute Clusters
+At our chair we have access to multiple compute clusters. You can get access to these, if you require larger amounts of compute. 
+
+
+### [TCML](https://uni-tuebingen.de/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/lehrstuehle/kognitive-systeme/projects/tcml-cluster/)
+This is a shared compute cluster administrated by our chair. It allows efficient training of medium-sized models (e.g. ResNet-152).
+
+### [ML Cloud](https://portal.mlcloud.uni-tuebingen.de/mlcloud-pages/news)
+This is the shared ML Cloud cluster of the University of Tuebingen. Here, large amounts of compute are available, in particular nodes with H100 GPUs with up to 80GB VRAM, allowing training of very large models. However access times might not be ideal due to queueing.
+
+
+### Avalon (TODO)
+These are two PCs with 8xRTX3090 and 8xA5000 respectively for direct compute access, managed by our chair. 
+
+General FAQ:
+- Environments: `/data/<username>/conda_envs`. In general, `/data/<username>` is where large things should go.
+- Repositories can typically live under `/home`. But if you create large checkpoints, you may want them on `/data`.
+  - Note: Hugging Face caches often go to `$HOME/.cache` regardless of repo location. A potential solution is to symlink `~/.cache` to `/data/<username>` (just a first idea).
+
+
+
 ## Supervision
 - We typically meet weekly at most. Depending on preference and progress, we can meet less often.
 - Please prepare a short update for meetings: what you did, what you plan to do next, and (most importantly) questions. This can be notes or a small slide deck.
@@ -92,12 +116,15 @@ Generative AI tools are becoming increasingly important for modern software deve
 ### General Guidelines
 - **Avoid "Vibe-coding"**: You will quickly find that pure "vibe-coding" (generating code without true understanding and oversight) will not work well in solving actually complicated problems and will produce extremely large amounts of unwieldy code and slow you down immensely. **You are solely responsible for the code you create and commit!**
 - **IDE-based Workflow**: I personally like to use an IDE-based workflow that allows you to review proposed changes (diffs) meticulously. I recommend [GitHub Copilot Pro](https://education.github.com/pack) which is free for students and provides access to state-of-the-art models (e.g., GPT-5.3, Claude Sonnet/Opus, Gemini 3).
-- **CLI Tools**: You can also try cli-based systems like [OpenAI Codex](https://openai.com/codex/), [Gemini-CLI](https://github.com/google-gemini/gemini-cli), and [claude-code](https://github.com/anthropics/claude-code) can work better for vibe-coding style development, since the models are finetuned to work in these specific environments. However, they give me too little precise control (e.g. diff views) for high-quality production grade code, or code which will live for a longer time. 
-- **Agentic tools** are very powerful. If possible, let the AI iterate based on tool feedback until the desired output is achieved.
+- **CLI Tools**: You can also try cli-based systems like [OpenAI Codex](https://openai.com/codex/), [Gemini-CLI](https://github.com/google-gemini/gemini-cli), and [claude-code](https://github.com/anthropics/claude-code) which often work better for "vibe-coding" style development, since the models are finetuned to work in these specific environments. However, they give me too little precise control (e.g. diff views) for high-quality production grade code, or code which will live for a longer time. 
+- **Agentic tools** are very powerful. If possible, let the AI iterate based on tool feedback until the desired output is achieved (e.g. to iterate until a build passes, or until some test passes).
 - You can attach images or screenshots (e.g., to sketch a figure you want the AI to create in tikz/matplotlib).
 - Make sure to sufficiently **sandbox** the AI agents. A docker development container workflow works very well for this.
-- Make sure to **save and backup your codebase** well for iteration by using git. 
+- Make sure to **save and backup your codebase** well for iteration by using git. AI agents often break things!
 - You can create custom prompts for common tasks with `.prompt.md` files and general instructions with `.instruction.md` files. To do this press the settings wheel and select `Prompt Files` or `Instructions & Rules`. 
+- In the process of writing a good prompt, you often already get a better grasp on the problem (cf. [Rubber Duck Debugging](https://en.wikipedia.org/wiki/Rubber_duck_debugging)).
+- Put great effort into the high-level design / architecture (this is where models are lacking and technical debt is acquired)
+- Treat vibe-coded code as discarable and do not waste time trying to fix it. Trying to reason with AI models an exercise in futility.
 
 ### Model Recommendations
 - **General Tasks**: **Gemini 3 Flash** This is my go-to model for almost all daily tasks, since it is fast, cheap and quite capable.
@@ -107,7 +134,7 @@ Generative AI tools are becoming increasingly important for modern software deve
 
 ### Uses where I find AI assisted coding tools highly useful:
 - **Creating initial prototypes** which will not be iterated on further. Here the AI allows you to find whether something is in principle feasible or useful. 
-- **Implementing changes from precise human specifications** under strict oversight for "production-grade" codebases.
+- **Implementing changes from precise human specifications** under strict oversight for "production-grade" codebases. That is, save typing effort. 
 - **Iterating in an agentic tool call fashion** to find a prototype or to fix a specific problem (e.g. build issues).
 - **As a sparring partner** to examine or explain code or discuss potential options. However, anything needs to be verified with your own intelligence. If you really want to understand some code, you need to read it yourself, the AI only provides you with an initial lay of the land.
 - **to clean up written text, e.g. documentation or academic writing** (but with high amounts of oversight).
@@ -117,6 +144,7 @@ Generative AI tools are becoming increasingly important for modern software deve
 #### Uses where AI assisted coding does not work for me:
 - To implement critical code.
 - To one-shot full complex tasks. It is your job to break this down into feasible smaller tasks.
-- To solve specific tasks, which have not been solved often in the training data.
-- any application where real world state needs to be managed (e.g. robotics, multi-threaded applications).
+- To solve novel problems, i.e. specific tasks, which have not been solved often in the training data.
+- Dealing with side effects / global state / „the real world“, i.e. any application where real world state needs to be managed (e.g. robotics, multi-threaded applications).
+- It does not know when a task is impossible, it will just iterate and hallucinate. 
 
