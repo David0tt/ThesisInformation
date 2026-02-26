@@ -1,0 +1,1 @@
+Note, that these dockerfiles also exist at https://github.com/David0tt/franka_pipeline/tree/main/docker. If any updates are done, these files should be synchronized. 
