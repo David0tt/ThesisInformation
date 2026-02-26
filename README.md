@@ -103,6 +103,17 @@ Additionally you need to hand in a printed version of your thesis with "Schwarze
 ### Printing
 You may print your thesis on one of our printers for free. You then only need to bind it at a copy shop ("Schwarze Klebebindung" is required).
 
+### Thesis Presentation
+Roughly two weeks to one month after the formal submission of your written thesis, you will have your thesis presentation. To schedule this, you will need to find a date that works for you and all the examiners. The thesis presentation itself should be 30 minutes long, followed by approximately 15–30 minutes of questions. Sometimes questions are asked during the presentation; in that case, the pure presentation time is, of course, extended.
+- Make sure that the amount of content fits within the given time. A good rule of thumb is that you can cover at most one slide per minute. Often, less is better (I would recommend around 23 slides for 30 minutes), so that the talk does not become hectic.
+- You should present in a natural and engaging way. Do not simply read from your notes, and avoid monotonously reciting the content from memory.
+- Include an introduction in your presentation so that people who are not familiar with your specific topic can still follow the talk.
+- Your original contribution should be clearly stated in the presentation.
+- You can use any slide template that you like. You can also find slide templates at https://gitlab.cs.uni-tuebingen.de/templates/presentation_templates however you need to remove the university of tuebingen logo if you are using these.
+- Send your presentation slides to your supervisor approximately one week before the presentation (at the latest, two days before the presentation). You may do a test presentation with us if you like, but this is not mandatory.
+- In any case, you should rehearse the presentation at least once on your own to check the timing.
+- If your topic allows it, you may include a demo after the formal presentation. A good demo is a big plus.
+
 ## Tool Recommendations
 - [Git](https://git-scm.com/): robust versioning (GitHub or our [GitLab](https://gitlab.cs.uni-tuebingen.de/)). If you are new to Git: [Git Guide](https://github.com/git-guides), [Git tutorial](https://git-scm.com/docs/gittutorial)
 - [Visual Studio Code](https://code.visualstudio.com): simple and highly customizable (however you can use any IDE you prefer)
