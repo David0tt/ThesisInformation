@@ -79,7 +79,7 @@ To build (run from the root of the current ThesisInformation repository):
 Start up the robot, unlock the joints, and enable FCI (see the sections above). Then run the containers for deoxys backend and franka_pipeline frontend:
 
     docker run -it --rm -v /cshome:/cshome -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --net=host --privileged deoxys_autostart
-    docker run -it --rm --runtime=nvidia --gpus all -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v /home/ott/datasets/:/datasets --net=host --privileged frankapipeline
+    docker run -it --rm --runtime=nvidia --gpus all -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v /home/ott/datasets/:/datasets -v /dev:/dev --net=host --privileged frankapipeline
 
 Open a terminal in the frankapipeline container (either using the existing one, vscode remote extension or starting a new terminal with `docker exec -it [CONTAINER_ID] bin/bash`). In it, you should now be able to run
 
