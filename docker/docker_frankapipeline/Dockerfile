@@ -11,7 +11,7 @@
 
 # OR with /cshome/share/ott/datasets:
 
-#     docker run -it --rm --runtime=nvidia --gpus all -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v /cshome/share/ott/datasets/:/datasets --net=host --privileged frankapipeline
+#     docker run -it --rm --runtime=nvidia --gpus all -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v /cshome/share/ott/datasets/:/datasets -v /home/ott/.cache/huggingface/:/root/.cache/huggingface/ --net=host --privileged frankapipeline
 
 
 FROM nvidia/cuda:12.9.1-cudnn-runtime-ubuntu24.04
@@ -165,3 +165,7 @@ RUN echo "export __EGL_VENDOR_LIBRARY_DIRS=/usr/share/glvnd/egl_vendor.d:/opt/mi
 
 
 WORKDIR /workspace/franka_pipeline
+
+
+# Upgrade PIL to fix AttributeError: module 'PIL.Image' has no attribute 'ExifTags'. Did you mean: 'TiffTags'?
+RUN pip install --upgrade Pillow
