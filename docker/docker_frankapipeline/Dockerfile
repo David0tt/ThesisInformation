@@ -7,11 +7,7 @@
 #
 # RUN COMMANDS:
 #
-#     docker run -it --rm --runtime=nvidia --gpus all -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v /home/ott/datasets/:/datasets --net=host --privileged frankapipeline
-
-# OR with /cshome/share/ott/datasets:
-
-#     docker run -it --rm --runtime=nvidia --gpus all -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v /cshome/share/ott/datasets/:/datasets -v /home/ott/.cache/huggingface/:/root/.cache/huggingface/ --net=host --privileged frankapipeline
+#     docker run -it --rm --runtime=nvidia --gpus all -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v /dev:/dev -v /cshome/share/ott/datasets/:/datasets -v /home/ott/.cache/huggingface/:/root/.cache/huggingface/ --net=host --privileged frankapipeline
 
 
 FROM nvidia/cuda:12.9.1-cudnn-runtime-ubuntu24.04
